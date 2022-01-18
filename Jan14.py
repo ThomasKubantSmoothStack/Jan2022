@@ -14,4 +14,6 @@ def BMI():
         else:
             answer = answer + "obese "
     print(answer)
-BMI()
+# BMI()
+
+print(.69 * 60)
