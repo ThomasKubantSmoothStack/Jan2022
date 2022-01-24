@@ -43,6 +43,7 @@ def main():
     for item in worksheet['A']:
         if date in str(item.value):
             row = item.row
+            break
     data = [ro for ro in worksheet.iter_rows(min_row=row, max_row=row, values_only=True)]
     filtered_data = [item for item in data[0][1:] if item != None]
     logging.info(f"Month of {date_raw[1].capitalize()}, {date_raw[0]}")
@@ -68,6 +69,7 @@ def main():
         if not flag:
             logging.warning("Unable to find correct date column. Please ensure every column matches standard naming.")
     scores = [item.value for item in worksheet[get_column_letter(col)][1:]]
+    print(scores)
     if scores[2] > 200:
         logging.info(f"Promoters: {scores[2]}: GOOD")
     else:
